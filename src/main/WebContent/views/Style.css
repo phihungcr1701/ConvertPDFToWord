@@ -1,0 +1,187 @@
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, table, td, th, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #444;
+}
+
+.logo .pdf {
+    color: #d9534f;
+}
+
+.logo .to {
+    color: #5bc0de;
+}
+
+.logo .doc {
+    color: #5cb85c;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-section {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.upload-section .upload {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px dashed #ccc;
+    background-color: #fafafa;
+    text-align: center;
+    cursor: pointer;
+}
+
+.upload-section .upload:hover {
+    border-color: #5bc0de;
+    background-color: #eaf6fb;
+}
+
+.file-list {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto; 
+    margin-bottom: 20px;
+    max-height: 300px; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+}
+
+.file-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.file-list th, .file-list td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.file-list th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+.file-list tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.file-list tr:hover {
+    background-color: #f1f1f1;
+}
+
+.file-list .action a {
+    color: #5cb85c;
+    text-decoration: none;
+}
+
+.file-list .action span {
+    color: #d9534f;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    width: 100%;
+}
+
+.action-buttons .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action-buttons .btn.action {
+    background-color: #5bc0de;
+    color: #ffffff;
+}
+
+.action-buttons .btn.action:hover {
+    background-color: #31b0d5;
+}
+
+.action-buttons .btn.delete {
+    background-color: #d9534f;
+    color: #ffffff;
+}
+
+.action-buttons .btn.delete:hover {
+    background-color: #c9302c;
+}
+
+/* Trạng thái */
+#fileTable td span {
+    font-weight: bold;
+    color: #d9534f;
+}
+
+#fileTable td a {
+    text-decoration: none;
+    color: #5cb85c;
+    font-weight: bold;
+}
+
+#fileTable td a:hover {
+    text-decoration: underline;
+}
+
+/* Căn chỉnh checkbox */
+.file-list th:first-child, 
+.file-list td:first-child {
+    width: 40px;
+    text-align: center;
+}
+
+.file-list input[type="checkbox"] {
+    cursor: pointer;
+    transform: scale(1.2); /* Tăng kích thước checkbox */
+}
+
+/* Căn chỉnh nút chọn tất cả */
+#selectAll {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
