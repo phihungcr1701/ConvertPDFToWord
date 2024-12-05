@@ -11,7 +11,7 @@ public class file {
     	this.id = id;
     	this.fileName = fileName;
     	this.filePath = filePath;
-    	this.status = status;
+    	this.status = status;		
     	this.convertedPath = convertedPath;
     }
     
@@ -24,7 +24,7 @@ public class file {
     
 	public int getId() {
 		return id;
-	}
+	} 	
 	public void setId(int id) {
 		this.id = id;
 	}

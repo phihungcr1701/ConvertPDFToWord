@@ -79,7 +79,7 @@
 
             <div class="action-buttons">
                 <button class="btn action" id="convertBtn" type="submit" name="action" value="convert">Chuyển</button>
-                <button class="btn action" id="downloadAllBtn" type="button" onclick="() => handleDowloadAllClick()">Tải tất cả</button>
+                <button class="btn action" id="downloadAllBtn" type="button" onclick="handleDownloadAllClick()">Tải tất cả</button>
                 <button class="btn action delete" id="deleteBtn" type="submit" name="action" value="delete">Xóa</button>
             </div>
         </form>

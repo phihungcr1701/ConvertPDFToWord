@@ -1,6 +1,7 @@
 package model.BO;
 
 import java.io.File;
+import java.sql.SQLException;
 import java.util.List;
 
 import controllers.WebSocket;
@@ -60,6 +61,10 @@ public class convertBO {
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
+	}
+
+	public file getFilebyID(int fileId) throws SQLException {
+		return convertDAO.getFileById(fileId);
 	}
 
 }
