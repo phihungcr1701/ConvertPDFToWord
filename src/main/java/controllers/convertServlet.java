@@ -13,7 +13,7 @@ import javax.servlet.http.*;
 import model.BO.convertBO;
 import model.Bean.file;
 
-@WebServlet("/")
+@WebServlet("/convertServlet")
 @MultipartConfig
 public class convertServlet extends HttpServlet {
 
@@ -21,7 +21,6 @@ public class convertServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-//        doPost(req, res);
     	List<file> files = convertBO.getAllFile();
         req.setAttribute("files", files);
         String path = "/views/convertView.jsp";
@@ -31,6 +30,7 @@ public class convertServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String action = req.getParameter("action");
+        System.out.println("hi" + action);
         if ("convert".equals(action)) {
             this.handleConvert(req, res);
         } else if ("delete".equals(action)) {
@@ -42,6 +42,7 @@ public class convertServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+        res.sendRedirect(req.getContextPath() + "/convertServlet");
     }
 
     private void handleConvert(HttpServletRequest req, HttpServletResponse res) {
@@ -68,13 +69,6 @@ public class convertServlet extends HttpServlet {
             }
 
             new Thread(() -> convertBO.processPendingFiles()).start();
-
-            List<file> files = convertBO.getAllFile();
-            req.setAttribute("files", files);
-            String path = "/views/convertView.jsp";
-            RequestDispatcher rd = getServletContext().getRequestDispatcher(path);
-            rd.forward(req, res);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -89,13 +83,6 @@ public class convertServlet extends HttpServlet {
                     convertBO.deleteFile(Integer.parseInt(fileId));
                 }
             }
-
-            List<file> files = convertBO.getAllFile();
-            req.setAttribute("files", files);
-            String path = "/views/convertView.jsp";
-            RequestDispatcher rd = getServletContext().getRequestDispatcher(path);
-            rd.forward(req, res);
-
         } catch (Exception e) {
             e.printStackTrace();
         }

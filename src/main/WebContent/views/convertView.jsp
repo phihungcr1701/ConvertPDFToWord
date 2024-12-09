@@ -16,7 +16,7 @@
             <span class="doc">DOC</span>
         </div>
 
-        <form id="uploadForm" action="<%= request.getContextPath() %>/" enctype="multipart/form-data" method="POST" class="form">
+        <form id="uploadForm" action="<%= request.getContextPath() %>/convertServlet" enctype="multipart/form-data" method="POST" class="form">
             <div class="upload-section">
                 <input class="btn upload" id="fileInput" type="file" name="files" multiple accept="application/pdf" />
             </div>
@@ -85,6 +85,7 @@
     <script type="text/javascript">
         var contextPath = "<%= request.getContextPath() %>";
     </script>
-    <script type="text/javascript" src="<%= request.getContextPath() %>/views/script.js"></script>
+    <script type="text/javascript" src="<%= request.getContextPath() %>/views/script.js"> 
+    </script>
 </body>
 </html>
