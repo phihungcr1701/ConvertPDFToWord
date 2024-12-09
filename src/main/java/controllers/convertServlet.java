@@ -13,7 +13,7 @@ import javax.servlet.http.*;
 import model.BO.convertBO;
 import model.Bean.file;
 
-@WebServlet("/convertServlet")
+@WebServlet("/")
 @MultipartConfig
 public class convertServlet extends HttpServlet {
 
@@ -21,7 +21,12 @@ public class convertServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        // Add any necessary logic here for handling GET requests
+//        doPost(req, res);
+    	List<file> files = convertBO.getAllFile();
+        req.setAttribute("files", files);
+        String path = "/views/convertView.jsp";
+        RequestDispatcher rd = getServletContext().getRequestDispatcher(path);
+        rd.forward(req, res);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

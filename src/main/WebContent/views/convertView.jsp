@@ -16,7 +16,7 @@
             <span class="doc">DOC</span>
         </div>
 
-        <form id="uploadForm" action="<%= request.getContextPath() %>/convertServlet" enctype="multipart/form-data" method="POST" class="form">
+        <form id="uploadForm" action="<%= request.getContextPath() %>/" enctype="multipart/form-data" method="POST" class="form">
             <div class="upload-section">
                 <input class="btn upload" id="fileInput" type="file" name="files" multiple accept="application/pdf" />
             </div>
@@ -34,9 +34,6 @@
                     <tbody>
                         <%
                        	List<file> files = (List<file>) request.getAttribute("files");
-                        if (files == null) {
-                            files = (List<file>) application.getAttribute("files");
-                        }
                         if (files != null && !files.isEmpty()) {
                             for (file f : files) {
                         %>
