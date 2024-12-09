@@ -1,13 +1,13 @@
 package model.Bean;
 
-public class file {
+public class FileEntity {
     private int id;
     private String fileName;
     private String filePath;
     private String status; 
     private String convertedPath;
     
-    public file(int id, String fileName, String filePath, String status, String convertedPath) {
+    public FileEntity(int id, String fileName, String filePath, String status, String convertedPath) {
     	this.id = id;
     	this.fileName = fileName;
     	this.filePath = filePath;
@@ -15,7 +15,7 @@ public class file {
     	this.convertedPath = convertedPath;
     }
     
-    public file(String fileName, String filePath, String status, String convertedPath) {
+    public FileEntity(String fileName, String filePath, String status, String convertedPath) {
     	this.fileName = fileName;
     	this.filePath = filePath;
     	this.status = status;

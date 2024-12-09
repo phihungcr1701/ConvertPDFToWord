@@ -1,4 +1,4 @@
-<%@page import="model.Bean.file"%>
+<%@page import="model.Bean.FileEntity"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,10 +32,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <%
-                       	List<file> files = (List<file>) request.getAttribute("files");
+                        <% 
+                       	List<FileEntity> files = (List<FileEntity>) request.getAttribute("files");
                         if (files != null && !files.isEmpty()) {
-                            for (file f : files) {
+                            for (FileEntity f : files) {
                         %>
                         <tr id="file-<%= f.getId() %>">
                             <td><input type="checkbox" class="fileCheckbox" data-id="<%= f.getId() %>" name="fileIds" value="<%= f.getId() %>" /></td> 

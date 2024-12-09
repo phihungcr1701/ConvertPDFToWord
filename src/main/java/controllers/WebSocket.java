@@ -11,7 +11,7 @@ import javax.websocket.server.ServerEndpoint;
 
 import com.google.gson.Gson;
 
-import model.Bean.file;
+import model.Bean.FileEntity;
 
 @ServerEndpoint("/socket")
 public class WebSocket {
@@ -44,7 +44,7 @@ public class WebSocket {
         throwable.printStackTrace();
     }
 
-    public static void sendMessageToAll(file messageObject) {
+    public static void sendMessageToAll(FileEntity messageObject) {
         try {
             // Chuyển đối tượng Java thành chuỗi JSON bằng Gson
             Gson gson = new Gson();

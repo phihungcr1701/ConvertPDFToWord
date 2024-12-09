@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class connectionDB {
+public class ConnectionDB {
 	
 	public static Connection getConnection() {
 		try {

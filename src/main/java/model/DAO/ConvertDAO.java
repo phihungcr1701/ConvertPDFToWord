@@ -7,18 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Bean.file;
+import model.Bean.FileEntity;
 
-public class convertDAO {
+public class ConvertDAO {
 	
-	public List<file> getAllFiles() {
-	    List<file> fileList = new ArrayList<>();
+	public List<FileEntity> getAllFiles() {
+	    List<FileEntity> fileList = new ArrayList<>();
 	    String sqlString = "SELECT * FROM file";
-	    try (Connection connection = connectionDB.getConnection();
+	    try (Connection connection = ConnectionDB.getConnection();
 		         PreparedStatement statement = connection.prepareStatement(sqlString)) {
 	        ResultSet rs = statement.executeQuery();
 	        while (rs.next()) {
-	            file f = new file(
+	            FileEntity f = new FileEntity(
             		rs.getInt("id"),
 	                rs.getString("fileName"),
 	                rs.getString("filePath"),
@@ -33,10 +33,10 @@ public class convertDAO {
 	    return fileList;
 	}
 	
-	public void saveFile(file file) {
+	public void saveFile(FileEntity file) {
 	    String sqlString = "INSERT INTO file (fileName, filePath, status, convertedPath) VALUES (?, ?, ?, ?)";
 	    
-	    try (Connection connection = connectionDB.getConnection();
+	    try (Connection connection = ConnectionDB.getConnection();
 	         PreparedStatement statement = connection.prepareStatement(sqlString)) {
 	         
 	        statement.setString(1, file.getFileName());
@@ -51,11 +51,11 @@ public class convertDAO {
 	}
 
 	
-	public List<file> getFilePending() {
-		List<file> resultFiles = new ArrayList<file>();
+	public List<FileEntity> getFilePending() {
+		List<FileEntity> resultFiles = new ArrayList<FileEntity>();
 		String sqlString = "SELECT * FROM file WHERE status = 'pending'";
 		
-		try (Connection connection = connectionDB.getConnection();
+		try (Connection connection = ConnectionDB.getConnection();
 				PreparedStatement statement = connection.prepareStatement(sqlString)) {
 			ResultSet resultSet = statement.executeQuery();
 			while (resultSet.next()) {
@@ -64,7 +64,7 @@ public class convertDAO {
 				String filePath = resultSet.getString("filePath");
 				String status = resultSet.getString("status");
 				String convertedPath = resultSet.getString("convertedPath");
-				file file = new file(id, fileName, filePath, status, convertedPath);
+				FileEntity file = new FileEntity(id, fileName, filePath, status, convertedPath);
 				resultFiles.add(file);
 			}
 			
@@ -77,7 +77,7 @@ public class convertDAO {
 	public void updateConvertedFile(int fileId, String status, String convertedPath) {
         String sql = "UPDATE file SET status = ?, convertedPath = ? WHERE id = ?";
 
-        try (Connection connection = connectionDB.getConnection();
+        try (Connection connection = ConnectionDB.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
         	statement.setString(1, status);
@@ -90,14 +90,14 @@ public class convertDAO {
         }
     }
 	
-	public file getFileById(int fileId) throws SQLException {
+	public FileEntity getFileById(int fileId) throws SQLException {
 	    String query = "SELECT * FROM file WHERE id = ?";
-	    try (Connection connection = connectionDB.getConnection();
+	    try (Connection connection = ConnectionDB.getConnection();
 	    	PreparedStatement stmt = connection.prepareStatement(query)) {
 	        stmt.setInt(1, fileId);
 	        ResultSet rs = stmt.executeQuery();
 	        if (rs.next()) {
-	            return new file(
+	            return new FileEntity(
 	                rs.getInt("id"),
 	                rs.getString("fileName"),
 	                rs.getString("filePath"),
@@ -111,7 +111,7 @@ public class convertDAO {
 
 	public void deleteFile(int fileId) throws SQLException {
 	    String query = "DELETE FROM file WHERE id = ?";
-	    try (Connection connection = connectionDB.getConnection();
+	    try (Connection connection = ConnectionDB.getConnection();
 	    	PreparedStatement stmt = connection.prepareStatement(query)) {
 	        stmt.setInt(1, fileId);
 	        stmt.executeUpdate();
