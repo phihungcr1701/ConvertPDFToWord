@@ -1,3 +1,4 @@
+<%@page import="config.Config"%>
 <%@page import="model.Bean.FileEntity"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -84,6 +85,7 @@
 
     <script type="text/javascript">
         var contextPath = "<%= request.getContextPath() %>";
+        const webSocketUrl = "<%= Config.WEBSOCKET_URL %>";
     </script>
     <script type="text/javascript" src="<%= request.getContextPath() %>/views/script.js"> 
     </script>

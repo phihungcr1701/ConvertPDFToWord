@@ -1,5 +1,5 @@
 
-const socket = new WebSocket("ws://localhost:8085/ConvertPDFToWord/socket");
+const socket = new WebSocket(webSocketUrl);
 
 socket.onopen = function() {
 	console.log("WebSocket connection established.");
