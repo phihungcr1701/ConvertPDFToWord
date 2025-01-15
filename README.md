@@ -2,6 +2,8 @@
 
 Ứng dụng **ConvertPDFToWord** giúp người dùng chuyển đổi file PDF thành Word một cách dễ dàng và nhanh chóng. Ứng dụng được phát triển bằng JSP/Servlet, hỗ trợ tải lên nhiều file và cho phép người dùng tải về kết quả sau khi xử lý xong.
 
+---
+
 ## 📝 Tính Năng
 
 - Chuyển đổi file PDF sang Word với độ chính xác cao.
@@ -9,8 +11,17 @@
 - Lưu trữ trạng thái và cho phép tải file sau khi xử lý (ngay cả khi ứng dụng bị đóng).
 - Giao diện thân thiện, dễ sử dụng.
 - Bảo mật file người dùng (không chia sẻ file).
-  
-### 🌟 Hướng Dẫn Sử Dụng
+
+---
+
+## Yêu Cầu Hệ Thống
+
+- **JDK** 8 hoặc mới hơn.
+- **Apache Tomcat** 9.0 hoặc mới hơn.
+- **XAMPP** (để tích hợp Tomcat và cơ sở dữ liệu).
+- **MySQL** (hoặc bất kỳ cơ sở dữ liệu nào bạn sử dụng).
+
+## 🌟 Hướng Dẫn Sử Dụng
 
 1. **Upload file PDF**:
    - Mở ứng dụng và nhấn nút "Chọn file" để tải lên file PDF.
@@ -25,11 +36,18 @@
 4. **Lưu trạng thái**:
    - Nếu bạn thoát ứng dụng, bạn vẫn có thể quay lại và tải file đã xử lý từ lịch sử tải về.
 
-#### 🛠 Công Nghệ Sử Dụng
+---
+
+## 🛠 Công Nghệ Sử Dụng
 
 - **Java Servlet**: Xử lý logic backend.
 - **Apache POI**: Chuyển đổi PDF sang Word.
 - **MySQL**: Lưu trữ thông tin file và trạng thái xử lý.
 - **HTML/CSS/JS**: Giao diện người dùng.
+- **XAMPP**: Tích hợp Tomcat và MySQL.
 
+---
 
+## 📞 Liên Hệ
+
+Nếu có thắc mắc hoặc góp ý, vui lòng liên hệ qua email: **phihung1701@gmail.com**
